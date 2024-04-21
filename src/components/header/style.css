@@ -1,0 +1,32 @@
+.nav-link{
+    @apply  flex items-center space-x-1 text-[#56616B] py-2 px-4 transition-all;
+}
+
+.nav-link:hover{
+    @apply bg-[#131316] text-white rounded-full
+}
+
+#nav a.active{
+    @apply bg-[#131316] text-white rounded-full
+}
+.header-main{
+    @apply shadow-md flex justify-between px-3 py-2 rounded-full
+}
+.header-wrapper{
+    @apply p-2 fixed w-full top-0
+}
+.logo{
+    @apply flex items-center
+}
+.nav{
+    @apply flex items-center space-x-2
+}
+.menu{
+    @apply flex items-center space-x-1 text-[#56616B]
+}
+.menu-button{
+    @apply bg-[#EFF1F6] flex justify-center items-center p-1 rounded-full space-x-2
+}
+.badge{
+    @apply bg-gradient-to-br from-[#5C6670] flex justify-center items-center from-[2.33%] to-[#131316] to-[96.28%] w-8 h-8 rounded-full text-[14px] text-white
+}

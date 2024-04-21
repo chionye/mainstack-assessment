@@ -1,12 +1,16 @@
-import Header from "@/components/header/header"
+/** @format */
 
-const Layout = ({children}:{children: React.ReactNode}) => {
+import Header from "@/components/header/header";
+import Sidebar from "@/components/sidebar/sidebar";
+
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Header />
-      {children}
+      <Sidebar />
+      <div className='md:px-32 mt-[144px]'>{children}</div>
     </>
   );
-}
+};
 
-export default Layout
+export default Layout;
