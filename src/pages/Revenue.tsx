@@ -7,9 +7,9 @@ import { Icon } from "@iconify-icon/react";
 const Revenue = () => {
   return (
     <>
-      <div className='flex justify-between'>
+      <div className='flex md:flex-row flex-col justify-between'>
         <div>
-          <div className='flex space-x-16'>
+          <div className='flex space-x-16 md:p-0 p-5'>
             <div className='text-left'>
               <p className='text-[#56616B]'>Available balance</p>
               <h1 className='text-[36px] font-semibold'>USD 120,500.00</h1>
@@ -22,7 +22,7 @@ const Revenue = () => {
           </div>
           <img src={graph} alt='' />
         </div>
-        <div className='w-[271px] flex space-y-7 flex-col'>
+        <div className='md:w-[271px] w-full flex space-y-7 flex-col md:p-0 md:mt-0 p-5 mt-10'>
           <div>
             <div className='flex justify-between'>
               <p>Ledger Balance</p>
@@ -73,7 +73,7 @@ const Revenue = () => {
           </div>
         </div>
       </div>
-      <div className='flex justify-between mt-24 border-b-2 pb-[24px]'>
+      <div className='flex justify-between mt-24 border-b-2 pb-[24px] md:px-0 p-2'>
         <div>
           <h3>24 Transactions</h3>
           <p>Your transactions for the last 7 days</p>
@@ -89,7 +89,7 @@ const Revenue = () => {
           </Button>
         </div>
       </div>
-      <div className='mt-[24px]'>
+      <div className='mt-[24px] pb-10'>
         <div className='flex items-center space-x-2 mb-[24px]'>
           <span className='w-[48px] h-[48px] bg-[#E3FCF2] rounded-full flex justify-center items-center'>
             <Icon

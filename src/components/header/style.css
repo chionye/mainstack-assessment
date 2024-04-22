@@ -1,32 +1,32 @@
 .nav-link{
-    @apply  flex items-center space-x-1 text-[#56616B] py-2 px-4 transition-all;
+    @apply  flex items-center space-x-1 text-[#56616B] py-2 px-4 transition-all bg-none rounded-full;
 }
 
 .nav-link:hover{
-    @apply bg-[#131316] text-white rounded-full
+    @apply bg-[#EFF1F6]
 }
 
 #nav a.active{
-    @apply bg-[#131316] text-white rounded-full
+    @apply bg-[#131316] text-white
 }
 .header-main{
-    @apply shadow-md flex justify-between px-3 py-2 rounded-full
+    @apply shadow-md flex justify-between px-3 py-2 rounded-full bg-white
 }
 .header-wrapper{
-    @apply p-2 fixed w-full top-0
+    @apply p-2 fixed w-full top-0 
 }
 .logo{
     @apply flex items-center
 }
 .nav{
-    @apply flex items-center space-x-2
+    @apply md:flex items-center md:space-x-8 space-x-2 hidden
 }
 .menu{
-    @apply flex items-center space-x-1 text-[#56616B]
-}
-.menu-button{
-    @apply bg-[#EFF1F6] flex justify-center items-center p-1 rounded-full space-x-2
+    @apply flex items-center space-x-3 text-[#56616B]
 }
 .badge{
     @apply bg-gradient-to-br from-[#5C6670] flex justify-center items-center from-[2.33%] to-[#131316] to-[96.28%] w-8 h-8 rounded-full text-[14px] text-white
+}
+.dropdown--badge{
+    @apply bg-gradient-to-br from-[#5C6670] flex justify-center items-center from-[2.33%] to-[#131316] to-[96.28%] w-10 h-10 rounded-full text-[14px] text-white
 }
