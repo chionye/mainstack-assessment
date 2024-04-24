@@ -1,13 +1,13 @@
 /** @format */
 
-import Header from "@/components/header/header";
-import Sidebar from "@/components/sidebar/sidebar";
+import Header from "@/components/header";
+import FloatingSidebar from "@/components/floating-sidebar";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Header />
-      <Sidebar />
+      <FloatingSidebar />
       <div className='md:px-32 mt-[144px]'>{children}</div>
     </>
   );

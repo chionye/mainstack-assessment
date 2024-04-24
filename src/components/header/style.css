@@ -30,3 +30,36 @@
 .dropdown--badge{
     @apply bg-gradient-to-br from-[#5C6670] flex justify-center items-center from-[2.33%] to-[#131316] to-[96.28%] w-10 h-10 rounded-full text-[14px] text-white
 }
+.name-span{
+    @apply text-[#131316] text-[16px]
+}
+.email-span{
+    @apply text-[#56616B] mt-2
+}
+.user{
+    @apply flex items-center space-x-3
+}
+.menu-item-link{
+    @apply flex items-center space-x-3 py-1
+}
+.menu-item-label{
+    @apply text-[#131316] font-[600] text-[1rem]
+}
+.app-link{
+    @apply flex p-4 rounded-xl space-x-3 hover:shadow-md transition-all
+}
+.app-img-span{
+    @apply p-3 rounded-md shadow-md
+}
+.app-link-container{
+    @apply mt-1 flex justify-between items-center w-full
+}
+.app-link-title{
+    @apply text-[#131316] text-[16px]
+}
+.app-link-subtitle{
+    @apply text-[#56616B] mt-2
+}
+.app-link-icons{
+    @apply text-[#56616B] opacity-0
+}

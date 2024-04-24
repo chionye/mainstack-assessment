@@ -1,6 +1,0 @@
-.sidebar{
-    @apply fixed md:left-5 top-[310px] shadow-md rounded-full space-x-2 bg-white p-1
-}
-.img{
-    @apply grayscale
-}

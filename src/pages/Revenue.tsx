@@ -3,8 +3,49 @@
 import { Button } from "@/components/ui/button";
 import graph from "@/assets/graph.png";
 import { Icon } from "@iconify-icon/react";
+import { DatePicker } from "@/components/ui/date-picker";
+import { Label } from "@/components/ui/label";
+import { useState } from "react";
+import Drawer from "@/components/drawer";
+import { filterButtonItems } from "@/utils/page-props";
+import SelectStack from "@/components/select-stack";
+import {
+  selectTransactionTypeItems,
+  selectTransactionStatusItems,
+} from "@/utils/page-props";
+import HistoryTable from "@/components/history-table";
+
+interface SelectOpenState {
+  [key: string]: boolean;
+}
 
 const Revenue = () => {
+  const [selectedItems, setSelectedItems] = useState<string[]>([]);
+  const [transactionHistory, setTransactionHistory] = useState<any>([]);
+  const [isSelectOpen, setIsSelectOpen] = useState<SelectOpenState>({
+    trans_type: false,
+    trans_status: false,
+  });
+
+  const toggleSelection = (item) => {
+    setSelectedItems((prevSelectedItems) => {
+      if (prevSelectedItems.includes(item)) {
+        return prevSelectedItems.filter(
+          (selectedItem) => selectedItem !== item
+        );
+      } else {
+        return [...prevSelectedItems, item];
+      }
+    });
+  };
+
+  const toggleSelect = (name: string) => {
+    setIsSelectOpen((prevState: SelectOpenState) => ({
+      ...prevState,
+      [name]: !prevState[name],
+    }));
+  };
+
   return (
     <>
       <div className='flex md:flex-row flex-col justify-between'>
@@ -78,59 +119,70 @@ const Revenue = () => {
           <h3>24 Transactions</h3>
           <p>Your transactions for the last 7 days</p>
         </div>
-        <div className='flex space-x-2'>
-          <Button className='bg-[#EFF1F6] py-[12px] px-[20px] text-black rounded-full flex items-center space-x-1 hover:bg-[#131316] hover:text-white'>
-            <span>Filter</span>
-            <Icon icon='ph:caret-down-bold' width='10' height='10' />
-          </Button>
+        <div className='flex space-x-2 items-center'>
+          <Drawer
+            title='Filter'
+            button={
+              <Button className='bg-[#EFF1F6] py-[12px] px-[20px] text-black rounded-full flex items-center space-x-1 hover:bg-[#131316] hover:text-white'>
+                <span>Filter</span>
+                <Icon icon='ph:caret-down-bold' width='10' height='10' />
+              </Button>
+            }>
+            <div className='flex flex-col justify-between h-full'>
+              <div>
+                <div className='flex items-center justify-between'>
+                  {filterButtonItems.map(
+                    (item: { label: string }, index: number) => (
+                      <Button
+                        key={index}
+                        variant={"outline"}
+                        className='shadow-none rounded-full text-[#131316] border-[#EFF1F6] hover:bg-[#EFF1F6]'>
+                        {item.label}
+                      </Button>
+                    )
+                  )}
+                </div>
+                <div className='my-4'>
+                  <Label className='text-[#131316]'>Date Range</Label>
+                  <div className='flex items-center justify-between mt-1 space-x-2'>
+                    <DatePicker label='Start date' />
+                    <DatePicker label='End date' />
+                  </div>
+                </div>
+                <SelectStack
+                  open={isSelectOpen.trans_type}
+                  toggleSelect={toggleSelect}
+                  label='Transaction Type'
+                  selectTag='trans_type'
+                  stackItems={selectTransactionTypeItems}
+                />
+                <SelectStack
+                  open={isSelectOpen.trans_status}
+                  toggleSelect={toggleSelect}
+                  label='Transaction Status'
+                  selectTag='trans_status'
+                  stackItems={selectTransactionStatusItems}
+                />
+              </div>
+              <div className='flex items-center space-x-2'>
+                <Button
+                  variant={"outline"}
+                  className='text-[14px] py-[14px] px-[28px] w-full rounded-full border-[#EFF1F6] shadow-none'>
+                  Clear
+                </Button>
+                <Button className='text-[14px] py-[14px] px-[28px] w-full rounded-full'>
+                  Apply
+                </Button>
+              </div>
+            </div>
+          </Drawer>
           <Button className='bg-[#EFF1F6] py-[12px] px-[20px] text-[#131316] rounded-full flex items-center space-x-1 hover:bg-[#131316] hover:text-white'>
             <span>Export list</span>
             <Icon icon='prime:download' width='13' height='13' />
           </Button>
         </div>
       </div>
-      <div className='mt-[24px] pb-10'>
-        <div className='flex items-center space-x-2 mb-[24px]'>
-          <span className='w-[48px] h-[48px] bg-[#E3FCF2] rounded-full flex justify-center items-center'>
-            <Icon
-              icon='bi:arrow-down'
-              width='20'
-              height='20'
-              className='text-[#075132] origin-center rotate-45'
-            />
-          </span>
-          <div className='w-full'>
-            <div className='flex justify-between'>
-              <p className='text-[#131316] text-[16px]'>Psychology of Money</p>
-              <p className='text-[#131316] font-[700]'>USD 600</p>
-            </div>
-            <div className='flex justify-between mt-3'>
-              <p className='text-[#56616B]'>Roy Cash</p>
-              <p className='text-[#56616B]'>Apr 03,2022</p>
-            </div>
-          </div>
-        </div>
-        <div className='flex items-center space-x-2'>
-          <span className='w-[48px] h-[48px] bg-[#F9E3E0] rounded-full flex justify-center items-center'>
-            <Icon
-              icon='bi:arrow-up'
-              width='20'
-              height='20'
-              className='text-[#961100] origin-center rotate-45'
-            />
-          </span>
-          <div className='w-full'>
-            <div className='flex justify-between'>
-              <p className='text-[#131316] text-[16px]'>Cash withdrawal </p>
-              <p className='text-[#131316] font-[700]'>USD 600</p>
-            </div>
-            <div className='flex justify-between mt-3'>
-              <p className='text-[#0EA163]'>Successful</p>
-              <p className='text-[#56616B]'>Apr 03,2022</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HistoryTable data={transactionHistory} />
     </>
   );
 };

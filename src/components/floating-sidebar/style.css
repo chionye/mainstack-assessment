@@ -1,0 +1,12 @@
+.sidebar{
+    @apply fixed md:left-5 top-[300px] shadow-md rounded-full bg-white flex flex-col items-center px-1
+}
+.img{
+    @apply grayscale
+}
+.img-span{
+    @apply p-2 my-1 flex rounded-full hover:bg-[#EFF1F6]
+}
+.tooltip-content{
+    @apply bg-[#131316] text-white py-3 px-3 rounded-md
+}
