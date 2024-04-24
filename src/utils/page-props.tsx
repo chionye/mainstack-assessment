@@ -100,7 +100,7 @@ export const AppItems: AppItemProps = [
     title: "Bookings",
     subtitle: "Manage your Bookings",
     link: "/",
-    image: share,
+    image: vector,
   },
 ];
 
