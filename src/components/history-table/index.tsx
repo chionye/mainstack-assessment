@@ -95,6 +95,7 @@ const HistoryTable: React.FC<HistoryTableProps> = ({ data, clearFilterFn }) => {
             </p>
             <Button
               variant={"outline"}
+              onClick={clearFilterFn}
               className=' py-3 px-6 border-0 hover:shadow-none shadow-none bg-[#EFF1F6] rounded-full mt-4'>
               Clear Filter
             </Button>

@@ -20,7 +20,7 @@ export function DatePicker({
   updateDate,
 }: {
   label: string;
-  updateDate: React.Dispatch<React.SetStateAction<string>>;
+  updateDate: any;
 }) {
   const [date, setDate] = React.useState<Date | undefined>();
   const [open, setOpen] = React.useState<boolean>(false);

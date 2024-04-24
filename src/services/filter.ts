@@ -1,6 +1,6 @@
 /** @format */
 
-const isToday = (data: any, date: string) => {
+const isToday = (date: string) => {
   const today = new Date();
   const todayDateString = today.toISOString().slice(0, 10);
   return date === todayDateString;
@@ -90,37 +90,37 @@ export const filterData = (
 
   if (dateRange) {
     if (dateRange.toLocaleLowerCase() === "today") {
-      const todayData = transactions.find((item) =>
-        isToday(transactions, item.date)
+      const todayData = transactions.find((item: any) =>
+        isToday(item.date)
       );
       if (todayData) {
         result.add(todayData);
       }
     }
     if (dateRange.toLocaleLowerCase() === "last 7 days") {
-      const lastSevenDays = transactions.filter((item) =>
+      const lastSevenDays = transactions.filter((item: any) =>
         isWithinLastSevenDays(item.date)
       );
       if (lastSevenDays.length > 0) {
-        lastSevenDays.forEach((item) => result.add(item));
+        lastSevenDays.forEach((item: any) => result.add(item));
       }
     }
     if (dateRange.toLocaleLowerCase() === "this month") {
       const lastMonthDates = getDatesOfMonth().slice(0, -1);
-      const lastMonthTransactions = transactions.filter((item) =>
+      const lastMonthTransactions = transactions.filter((item: any) =>
         lastMonthDates.includes(item.date)
       );
       if (lastMonthTransactions.length > 0) {
-        lastMonthTransactions.forEach((item) => result.add(item));
+        lastMonthTransactions.forEach((item: any) => result.add(item));
       }
     }
     if (dateRange.toLocaleLowerCase() === "last 3 months") {
       const lastThreeMonthsDates = getDatesOfLastThreeMonths();
-      const lastThreeMonthsTransactions = transactions.filter((item) =>
+      const lastThreeMonthsTransactions = transactions.filter((item: any) =>
         lastThreeMonthsDates.includes(item.date)
       );
       if (lastThreeMonthsTransactions.length > 0) {
-        lastThreeMonthsTransactions.forEach((item) => result.add(item));
+        lastThreeMonthsTransactions.forEach((item: any) => result.add(item));
       }
     }
   }
@@ -129,7 +129,7 @@ export const filterData = (
     const end = new Date(endDate).toUTCString();
     const transactionsInRange = getDateRange(transactions, start, end);
     if (transactionsInRange.length > 0) {
-      transactionsInRange.forEach((item) => result.add(item));
+      transactionsInRange.forEach((item:any) => result.add(item));
     }
   }
   if (trans_type.length > 0) {
@@ -144,7 +144,7 @@ export const filterData = (
       transaction_type
     );
     if (matchingTransactions.length > 0) {
-      matchingTransactions.forEach((item) => result.add(item));
+      matchingTransactions.forEach((item: any) => result.add(item));
     }
   }
   if (trans_status.length > 0) {
@@ -153,7 +153,7 @@ export const filterData = (
       trans_status
     );
     if (matchingTransactions.length > 0) {
-      matchingTransactions.forEach((item) => result.add(item));
+      matchingTransactions.forEach((item: any) => result.add(item));
     }
   }
   console.log(result);
