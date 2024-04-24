@@ -1,3 +1,5 @@
+/** @format */
+
 import { Navigate, Outlet, createBrowserRouter } from "react-router-dom";
 import Revenue from "@/pages/Revenue";
 import Layout from "@/pages/Layout";
@@ -14,11 +16,11 @@ const Routes = () => {
       children: [
         {
           path: "/",
-          element: <Navigate to='revenue' />,
+          element: <Revenue />,
         },
         {
-          path: "revenue",
-          element: <Revenue />,
+          path: "*",
+          element: <Navigate to='/' />,
         },
       ],
     },

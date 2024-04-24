@@ -46,27 +46,27 @@ type selectStackProps = {
 export const NavItems: NavItemsProps = [
   {
     label: "Home",
-    link: "/",
+    link: "/home",
     icon: "material-symbols-light:home-outline",
   },
   {
     label: "Analytics",
-    link: "/",
+    link: "/analytics",
     icon: "material-symbols-light:analytics-outline",
   },
   {
     label: "Revenue",
-    link: "/revenue",
+    link: "/",
     icon: "fa6-solid:money-bills",
   },
   {
     label: "CRM",
-    link: "/",
+    link: "/crm",
     icon: "mdi:users-outline",
   },
   {
     label: "Apps",
-    link: "/",
+    link: "/apps",
     icon: "material-symbols-light:home-outline",
   },
 ];
