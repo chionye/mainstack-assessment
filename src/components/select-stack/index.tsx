@@ -13,17 +13,21 @@ type StackItem = {
 type selectStackProp = {
   open: boolean;
   toggleSelect: (name: string) => void;
+  itemSelectFn: (name: string, tag: string) => void;
   label: string;
   selectTag: string;
   stackItems: StackItem[];
+  selectedItemsArray: string[];
 };
 
 const SelectStack = ({
   open,
   toggleSelect,
+  itemSelectFn,
   label,
   selectTag,
   stackItems,
+  selectedItemsArray,
 }: selectStackProp) => {
   return (
     <div className='my-4'>
@@ -31,7 +35,13 @@ const SelectStack = ({
       <div className='flex items-center justify-between mt-1 space-x-2'>
         <Select open={open} onOpenChange={() => toggleSelect(selectTag)}>
           <SelectTrigger className='flex items-center'>
-            <SelectValue placeholder='Store Transactions' />
+            <SelectValue
+              placeholder={`${
+                selectedItemsArray.length > 0
+                  ? selectedItemsArray.join(", ")
+                  : stackItems[0].label
+              }`}
+            />
             {open ? (
               <Icon
                 icon='ph:caret-up-bold'
@@ -60,7 +70,11 @@ const SelectStack = ({
                 ) => (
                   <SelectLabel key={index}>
                     <div className='flex items-center space-x-2 cursor-pointer'>
-                      <Checkbox id={item.id} />
+                      <Checkbox
+                        id={item.id}
+                        onClick={() => itemSelectFn(item.label, selectTag)}
+                        checked={selectedItemsArray.includes(item.label)}
+                      />
                       <label
                         htmlFor='terms'
                         className='text-sm font-medium leading-none  cursor-pointer peer-disabled:opacity-70'>

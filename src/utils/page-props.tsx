@@ -199,7 +199,7 @@ export const selectTransactionTypeItems: selectStackProps = [
     label: "Get Tipped",
   },
   {
-    id: "withdrawals",
+    id: "withdrawal",
     label: "Withdrawals",
   },
   {

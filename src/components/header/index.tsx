@@ -10,9 +10,20 @@ import { useState } from "react";
 import { Separator } from "../ui/separator";
 import { NavItems, AppItems, MenuItems, MenuIcon } from "@/utils/page-props";
 import Dropdown from "../dropdown";
+import Query from "@/api/query";
+import { BASE_URL, USERS } from "@/constants/endpoints";
+import { generateUserInitials } from "@/services/helpers";
 
 const Header = () => {
   const [toggleText, setToggleText] = useState<boolean>(false);
+  const queryParamsArray = [
+    {
+      id: "user",
+      url: `${BASE_URL}${USERS}`,
+    },
+  ];
+  const { queries } = Query(queryParamsArray);
+
   return (
     <div className='header-wrapper'>
       <div className='header-main'>
@@ -129,10 +140,16 @@ const Header = () => {
             }>
             <DropdownMenuLabel className='py-3'>
               <div className='user'>
-                <span className='dropdown--badge'>OJ</span>
+                <span className='dropdown--badge'>
+                  {generateUserInitials(
+                    `${queries[0].data?.data.first_name} ${queries[0].data?.data.last_name}`
+                  )}
+                </span>
                 <div>
-                  <p className='name-span'>Olivier Jones</p>
-                  <p className='email-span'>olivierjones@gmail.com</p>
+                  <p className='name-span'>{`${queries[0].data?.data.first_name} ${queries[0].data?.data.last_name}`}</p>
+                  <p className='email-span'>
+                    {queries[0].data?.data.email}
+                  </p>
                 </div>
               </div>
             </DropdownMenuLabel>

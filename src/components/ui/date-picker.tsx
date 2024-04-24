@@ -15,9 +15,19 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-export function DatePicker({ label = "Pick a date" }: { label: string }) {
+export function DatePicker({
+  label = "Pick a date",
+  updateDate,
+}: {
+  label: string;
+  updateDate: React.Dispatch<React.SetStateAction<string>>;
+}) {
   const [date, setDate] = React.useState<Date | undefined>();
   const [open, setOpen] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    updateDate(date);
+  }, [date]);
 
   return (
     <Popover>

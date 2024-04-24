@@ -13,7 +13,7 @@
     @apply shadow-md flex justify-between px-3 py-2 rounded-full bg-white
 }
 .header-wrapper{
-    @apply p-2 fixed w-full top-0 
+    @apply p-2 fixed w-full top-0 z-50
 }
 .logo{
     @apply flex items-center

@@ -1,5 +1,5 @@
 .sidebar{
-    @apply fixed md:left-5 top-[300px] shadow-md rounded-full bg-white flex flex-col items-center px-1
+    @apply fixed md:left-5 top-[300px] z-50 shadow-md rounded-full bg-white flex flex-col items-center px-1
 }
 .img{
     @apply grayscale
