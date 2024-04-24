@@ -14,10 +14,10 @@ const Routes = () => {
       children: [
         {
           path: "/",
-          element: <Navigate to='/revenue' />,
+          element: <Navigate to='revenue' />,
         },
         {
-          path: "/revenue",
+          path: "revenue",
           element: <Revenue />,
         },
       ],
