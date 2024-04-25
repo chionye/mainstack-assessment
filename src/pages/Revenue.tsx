@@ -35,7 +35,7 @@ const Revenue = () => {
   });
   const [startDate, setStartDate] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
-  const [transactionPeriod, setTransactionPeriod] = useState<string>("");
+  const [transactionPeriod, setTransactionPeriod] = useState<string>("all time");
   const [transactionHistory, setTransactionHistory] = useState<any>([]);
   const [filter, setFilter] = useState<any>([]);
   const [statement, setStatement] = useState<any>({
@@ -171,7 +171,8 @@ const Revenue = () => {
               <h3>{filter.length} Transactions</h3>
               <p>
                 Your transactions for{" "}
-                {transactionPeriod !== "this month" && "the"}{" "}
+                {transactionPeriod === "this month" ||
+                  (transactionPeriod === "all time" && "")}{" "}
                 {transactionPeriod}
               </p>
             </div>
