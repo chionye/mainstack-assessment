@@ -1,4 +1,3 @@
-/** @format */
 
 const isToday = (date: string) => {
   const today = new Date();
@@ -156,7 +155,6 @@ export const filterData = (
       matchingTransactions.forEach((item: any) => result.add(item));
     }
   }
-  console.log(result);
 
   return Array.from(result);
 };

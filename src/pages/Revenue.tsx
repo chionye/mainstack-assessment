@@ -122,10 +122,6 @@ const Revenue = () => {
     }
   }, [queries[0].isSuccess, queries[1].isSuccess]);
 
-  useEffect(() => {
-    console.log(startDate, endDate, selectedItems, transactionPeriod);
-  }, [startDate, endDate, selectedItems, transactionPeriod]);
-
   return (
     <>
       {queries[0].isLoading || queries[1].isLoading ? (
