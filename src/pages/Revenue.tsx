@@ -1,4 +1,3 @@
-/** @format */
 
 import { Button } from "@/components/ui/button";
 import { Icon } from "@iconify-icon/react";

@@ -75,31 +75,31 @@ export const AppItems: AppItemProps = [
   {
     title: "Link in Bio",
     subtitle: "Manage your Link in Bio",
-    link: "/",
+    link: "/link",
     image: share,
   },
   {
     title: "Store",
     subtitle: "Manage your Store activities",
-    link: "/",
+    link: "/store",
     image: file,
   },
   {
     title: "Media Kit",
     subtitle: "Manage your Media Kit",
-    link: "/",
+    link: "/media",
     image: folder,
   },
   {
     title: "Invoicing",
     subtitle: "Manage your Invoices",
-    link: "/",
+    link: "/invoice",
     image: vector,
   },
   {
     title: "Bookings",
     subtitle: "Manage your Bookings",
-    link: "/",
+    link: "/booking",
     image: vector,
   },
 ];
