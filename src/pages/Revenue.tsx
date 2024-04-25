@@ -108,7 +108,7 @@ const Revenue = () => {
       trans_type: [],
       trans_status: [],
     });
-    setTransactionPeriod("");
+    setTransactionPeriod("all time");
   };
 
   useEffect(() => {
