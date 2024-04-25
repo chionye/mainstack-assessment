@@ -22,8 +22,7 @@ describe('generateUserInitials', () => {
   });
 
   it('handles names with multiple middle names', () => {
-    expect(generateUserInitials('John Michael Smith')).toBe('JMS');
+    expect(generateUserInitials('Chukwuma Ciroma Adekunle')).toBe('CCA');
   });
 });
-
 
