@@ -52,7 +52,7 @@ const Header = () => {
                   className='md:w-[26rem]'
                   button={
                     <Button
-                      variant={"ghost"}
+                      variant={"outline"}
                       className={`text-[#56616B] border-white py-2 px-4 transition-all bg-none rounded-full no-underline hover:bg-[#EFF1F6] ${
                         toggleText && "bg-[#131316] text-white"
                       }`}>
@@ -117,7 +117,7 @@ const Header = () => {
         </div>
         <div className='menu'>
           {MenuIcon.map((item: { icon: string }, index: number) => (
-            <Button variant={"ghost"} className='w-[40px]' key={index}>
+            <Button variant={"outline"} className='w-[40px]' key={index}>
               <Icon icon={item.icon} width='20' height='20' />
             </Button>
           ))}
