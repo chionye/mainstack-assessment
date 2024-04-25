@@ -12,6 +12,10 @@ describe("formatAmount", () => {
   });
 
   it("returns a formatted string with proper locality for a non-integer amount", () => {
-    expect(formatAmount(123.456)).toBe((123.456).toLocaleString());
+    expect(formatAmount(123.456)).toBe("123.46");
+  });
+
+  it("returns a formatted string with comma for larger amounts", () => {
+    expect(formatAmount(1000.00)).toBe("1,000.00");
   });
 });

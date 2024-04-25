@@ -21,16 +21,16 @@ export const sentenceCase = (word: string) => {
 };
 
 export const formatAmount = (amount: number) => {
-  if (!amount) {
+  if (amount == null || isNaN(amount)) {
     return "0.00";
   }
 
-  if (Number.isInteger(amount)) {
-    return amount.toFixed(2);
-  }
-
-  return amount.toLocaleString();
+  return amount.toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
 };
+
 
 export const generatePascalCase = (word: string) => {
   if (!word) {
