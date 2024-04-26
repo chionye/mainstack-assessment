@@ -1,3 +1,4 @@
+/** @format */
 
 import { Button } from "@/components/ui/button";
 import { Icon } from "@iconify-icon/react";
@@ -18,6 +19,7 @@ import { formatAmount, generatePascalCase } from "@/services/helpers";
 import { filterData } from "@/services/filter";
 import Loader from "@/components/loader";
 import Chart from "@/components/chart";
+import { SheetClose } from "@/components/ui/sheet";
 
 interface SelectOpenState {
   [key: string]: boolean;
@@ -34,7 +36,8 @@ const Revenue = () => {
   });
   const [startDate, setStartDate] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
-  const [transactionPeriod, setTransactionPeriod] = useState<string>("all time");
+  const [transactionPeriod, setTransactionPeriod] =
+    useState<string>("all time");
   const [transactionHistory, setTransactionHistory] = useState<any>([]);
   const [filter, setFilter] = useState<any>([]);
   const [statement, setStatement] = useState<any>({
@@ -240,11 +243,13 @@ const Revenue = () => {
                       onClick={handleClearFilter}>
                       Clear
                     </Button>
-                    <Button
-                      className='text-[14px] py-[14px] px-[28px] w-full rounded-full'
-                      onClick={handleFilter}>
-                      Apply
-                    </Button>
+                    <SheetClose asChild>
+                      <Button
+                        className='text-[14px] py-[14px] px-[28px] w-full rounded-full'
+                        onClick={handleFilter}>
+                        Apply
+                      </Button>
+                    </SheetClose>
                   </div>
                 </div>
               </Drawer>
