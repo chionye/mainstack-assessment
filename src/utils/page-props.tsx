@@ -4,6 +4,7 @@ import share from "@/assets/share.svg";
 import file from "@/assets/file.svg";
 import folder from "@/assets/folder.svg";
 import vector from "@/assets/vector.svg";
+import bookings from "@/assets/bookings.svg";
 
 type NavItemsProps = {
   label: string;
@@ -100,7 +101,7 @@ export const AppItems: AppItemProps = [
     title: "Bookings",
     subtitle: "Manage your Bookings",
     link: "/booking",
-    image: vector,
+    image: bookings,
   },
 ];
 
